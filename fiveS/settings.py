@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = ['*','webmercale.mercale.net', 'main.d2tggh9iqklj8j.amplifyapp.com']
+ALLOWED_HOSTS = ['webmercale.mercale.net', 'main.d2tggh9iqklj8j.amplifyapp.com']
 
 # Application definition
 

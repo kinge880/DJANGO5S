@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = ['*','webmercale.mercale.net', 'main.d2tggh9iqklj8j.amplifyapp.com']
+ALLOWED_HOSTS = ['webmercale.mercale.net', 'main.d2tggh9iqklj8j.amplifyapp.com']
 
 # Application definition
 
@@ -133,8 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000"
+    "https://main.d2tggh9iqklj8j.amplifyapp.com",
+    "https://webmercale.mercale.net"
 ]
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')

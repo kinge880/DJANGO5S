@@ -47,7 +47,7 @@ class responseImageViewset(viewsets.ModelViewSet):
 #Viewsets para a geração do relatório
 
 class Forms5sRelatoryViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination
     serializer_class = serializer.fiveFormRelatorySerializer
     http_method_names = ['get']
@@ -63,7 +63,7 @@ class Forms5sRelatoryViewset(viewsets.ModelViewSet):
     ordering_fields = ['title']
     
 class Relatory5SViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination
     serializer_class = serializer.responseWithImageRelatorySerializer
     http_method_names = ['get']

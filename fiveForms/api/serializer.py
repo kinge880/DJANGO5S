@@ -40,6 +40,7 @@ class fiveFormRelatorySerializer(serializers.ModelSerializer):
         representation["end_at"] = instance.end_at
         representation["created_at"] = instance.created_at
         representation["updated_at"] = instance.updated_at
+        representation["branchId"] = int(instance.sectorId.branchName.number)
 
         return representation
 
@@ -96,7 +97,7 @@ class responseWithImageRelatorySerializer(serializers.ModelSerializer):
         representation = dict()
         representation["id"] = instance.id
         if str(instance.image) != 'None':
-            representation["image"] = 'http://127.0.0.1:8000/media/'+str(instance.image.image)
+            representation["image"] = 'https://webmercale.mercale.net/media/'+str(instance.image.image)
         else:
             representation["image"] = 'None'
         representation["responseweight"] = instance.responseweight
@@ -116,6 +117,7 @@ class responseWithImageRelatorySerializer(serializers.ModelSerializer):
         representation["sectorGroupId"] = int(instance.formId.sectorId.sectorGroup.id)
         representation["sector"] = str(instance.formId.sectorId.name)
         representation["sectorId"] = int(instance.formId.sectorId.id)
+        representation["branchId"] = int(instance.formId.sectorId.branchName.number)
         
         return representation
 

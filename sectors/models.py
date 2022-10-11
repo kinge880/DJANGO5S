@@ -34,7 +34,7 @@ class sectorsImage(models.Model):
         super().save(*args, **kwargs)
         
     def __str__(self):
-        return f'http://127.0.0.1:8000/media/{self.image}'
+        return f'https://webmercale.mercale.net/media/{self.image}'
     
 class userSectors(models.Model):
     STATUS_CHOICES = (

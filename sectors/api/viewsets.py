@@ -13,7 +13,7 @@ class userSectorsViewset(viewsets.ModelViewSet):
     queryset = userSectors.objects.all()
     
 class sectorsViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     queryset = sectors.objects.all()
     serializer_class = serializer.sectorsSerializers
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
@@ -22,7 +22,7 @@ class sectorsViewset(viewsets.ModelViewSet):
     ordering_fields = ['name']
 
 class sectorsGroupViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     queryset = sectorsGroup.objects.all()
     serializer_class = serializer.sectorsGroupSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
@@ -32,7 +32,7 @@ class sectorsGroupViewset(viewsets.ModelViewSet):
 
 #End point para trazer as imagens em vez de o id
 class sectorsHomeViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     http_method_names = ['get']
     queryset = sectors.objects.all()
     serializer_class = serializer.SectorImageSerializer
@@ -43,7 +43,7 @@ class sectorsHomeViewset(viewsets.ModelViewSet):
 
 #End point para trazer as imagens em vez de o id
 class sectorsGroupHomeViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     http_method_names = ['get']
     queryset = sectorsGroup.objects.all()
     serializer_class = serializer.SectorGroupImageSerializer
@@ -53,12 +53,12 @@ class sectorsGroupHomeViewset(viewsets.ModelViewSet):
     ordering_fields = ['name']
 
 class imageSectorsViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.imageSectorsSerializers
     queryset = sectorsImage.objects.all()
     
 class branchViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.branchSerializers
     pagination_class = YourPaginationLimit
     queryset = branch.objects.all()

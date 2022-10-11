@@ -8,7 +8,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.paginator import CustomPagination
 
 class fiveFormViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.fiveFormSerializer
     queryset = fiveForm.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
@@ -21,7 +21,7 @@ class fiveFormViewset(viewsets.ModelViewSet):
     
 
 class askViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.askSerializer
     queryset = fiveFormAsk.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
@@ -29,7 +29,7 @@ class askViewset(viewsets.ModelViewSet):
     
 
 class responseViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination
     serializer_class = serializer.responseSerializer
     queryset = fiveFormResponse.objects.all().order_by('askId')
@@ -37,7 +37,7 @@ class responseViewset(viewsets.ModelViewSet):
     filterset_fields = ['formId', 'askId']
 
 class responseImageViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.responseImageSerializer
     queryset = fiveFormResponseImage.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -47,7 +47,7 @@ class responseImageViewset(viewsets.ModelViewSet):
 #Viewsets para a geração do relatório
 
 class Forms5sRelatoryViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination
     serializer_class = serializer.fiveFormRelatorySerializer
     http_method_names = ['get']
@@ -62,7 +62,7 @@ class Forms5sRelatoryViewset(viewsets.ModelViewSet):
     ordering_fields = ['title']
     
 class Relatory5SViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     pagination_class = CustomPagination
     serializer_class = serializer.responseWithImageRelatorySerializer
     http_method_names = ['get']

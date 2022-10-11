@@ -19,7 +19,7 @@ from email.mime.text import MIMEText
 
 #Rota de usuários
 class userManageViewset(viewsets.ModelViewSet):
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = serializer.userGetSerializers
     http_method_names = ['get', 'put', 'patch']    
     queryset = User.objects.all()
@@ -102,7 +102,7 @@ class ChangePasswordView(viewsets.ModelViewSet):
 #rota que permite alterar e inserir cargos
 class officeViewset(viewsets.ModelViewSet):
     serializer_class = serializer.officeSerializer
-    #permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, )
     http_method_names = ['post', 'get','put','delete']    
     queryset = office.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -122,7 +122,7 @@ class officeViewset(viewsets.ModelViewSet):
 #rota para obter cargos
 class officeGetViewset(viewsets.ModelViewSet):
     serializer_class = serializer.officeSerializer
-    #permission_classes = (AllowAny,)
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = office.objects.all()
     

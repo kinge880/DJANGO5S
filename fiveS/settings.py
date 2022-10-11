@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['webmercale.mercale.net', 'main.d2tggh9iqklj8j.amplifyapp.com']
 
 # Application definition
 
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_property_filter',
     'simple_history',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -65,17 +66,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fiveS.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   'default': {
+        'ENGINE': config('ENGINE'),
+        'NAME': config('DATABASENAME'),
+        'USER': config('DATABASESUSER'),
+        'PASSWORD': config('DATABASESPASS'),
+        'HOST': config('DATABASEHOST'),
+        'PORT': config('DATABASEPORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -138,11 +138,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000"
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 DEFAULT_FROM_EMAIL = config('EMAILLOGIN')
 SERVER_EMAIL = config('EMAILLOGIN')
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAILLOGIN')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True

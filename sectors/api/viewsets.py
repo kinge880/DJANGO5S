@@ -13,11 +13,11 @@ class userSectorsViewset(viewsets.ModelViewSet):
     queryset = userSectors.objects.all()
     
 class sectorsViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    #permission_classes = (IsAuthenticated, )
     queryset = sectors.objects.all()
     serializer_class = serializer.sectorsSerializers
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
-    filterset_fields = ['name', 'is_active','sectorGroup']
+    filterset_fields = ['name', 'is_active','sectorGroup', 'branchName']
     search_fields = ['name']
     ordering_fields = ['name']
 
@@ -58,7 +58,7 @@ class imageSectorsViewset(viewsets.ModelViewSet):
     queryset = sectorsImage.objects.all()
     
 class branchViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    #permission_classes = (IsAuthenticated, )
     serializer_class = serializer.branchSerializers
     pagination_class = YourPaginationLimit
     queryset = branch.objects.all()
@@ -66,4 +66,4 @@ class branchViewset(viewsets.ModelViewSet):
     filterset_fields = ['address', 'number','is_active']
     search_fields = ['address','number']
     ordering_fields = ['number', 'address', 'is_active']
-        
+    

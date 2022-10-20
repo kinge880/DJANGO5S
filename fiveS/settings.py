@@ -134,7 +134,9 @@ AUTH_USER_MODEL = 'accounts.User'
 
 CORS_ALLOWED_ORIGINS = [
     "https://main.d2tggh9iqklj8j.amplifyapp.com",
-    "https://webmercale.mercale.net"
+    "https://webmercale.mercale.net",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3000"
 ]
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')
